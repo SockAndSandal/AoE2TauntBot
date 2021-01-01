@@ -62,4 +62,4 @@ async def leave(ctx):
 async def change_status():
     await client.change_presence(activity=discord.Game(choice(status)))
 
-client.run('NzkyNjcxMjgyMDU1MzQ4MjQ1.X-hGqA.zHOs4wR09H6oBvhZsAVzoqtjKw4')
+client.run('insertcodehere')

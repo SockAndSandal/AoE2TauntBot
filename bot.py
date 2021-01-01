@@ -2,8 +2,8 @@ import discord
 from discord.ext import commands, tasks
 from discord.voice_client import VoiceClient
 import ffmpeg
-
 from random import choice
+from config import *
 
 ffmpeg_options = {
     'options': '-vn'
@@ -37,7 +37,7 @@ async def join(ctx):
         channel = ctx.message.author.voice.channel
     await channel.connect()
 
-@client.command(name='v', help='')
+@client.command(name='v', help='https://ageofempires.fandom.com/wiki/Taunts#Full_list_of_taunts')
 async def one(ctx, num):
     server = ctx.message.guild
     voice_channel = ctx.author.voice.channel
@@ -49,9 +49,9 @@ async def one(ctx, num):
     elif voice==voice_channel:
         pass
     if num == 'abhiroop':
-        voice.play(discord.FFmpegPCMAudio('24.mp3'))
+        voice.play(discord.FFmpegPCMAudio('Sounds/24.mp3'))
     else:
-        voice.play(discord.FFmpegPCMAudio(num+'.mp3'))
+        voice.play(discord.FFmpegPCMAudio('Sounds/'+num+'.mp3'))
         
 @client.command(name='dc')
 async def leave(ctx):
@@ -62,4 +62,4 @@ async def leave(ctx):
 async def change_status():
     await client.change_presence(activity=discord.Game(choice(status)))
 
-client.run('insertcodehere')
+client.run(TOKEN)
